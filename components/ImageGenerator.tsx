@@ -105,7 +105,7 @@ export const ImageGenerator: React.FC = () => {
                             step="10"
                             value={asciiWidth}
                             onChange={(e) => setAsciiWidth(Number(e.target.value))}
-                            className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                            className="w-full"
                             aria-label="ASCII Art Width"
                             disabled={!imageSrc}
                         />
@@ -116,7 +116,7 @@ export const ImageGenerator: React.FC = () => {
                         <button
                           onClick={handleGenerateClick}
                           disabled={!imageSrc}
-                          className="w-full px-4 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-md font-bold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 disabled:bg-gray-800 disabled:text-gray-500 disabled:cursor-not-allowed"
+                          className="w-full px-4 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-md font-bold text-white transition-all duration-200 border border-indigo-500 shadow-lg shadow-indigo-600/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 disabled:bg-gray-700 disabled:text-gray-500 disabled:cursor-not-allowed disabled:shadow-none disabled:border-transparent"
                         >
                           Generar Arte
                         </button>
@@ -126,7 +126,7 @@ export const ImageGenerator: React.FC = () => {
             </div>
 
             {/* Output Panel */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 min-w-0">
               <AsciiOutput outputText={outputText} error={error} mode="image" />
             </div>
         </div>

@@ -150,35 +150,27 @@ export const TextGenerator: React.FC = () => {
         <div className="space-y-6">
           <div>
             <label htmlFor="inputText" className="block text-sm font-medium text-gray-400 mb-2">Texto</label>
-            <div className="w-full bg-gray-900 border border-gray-600 rounded-md transition-colors focus-within:ring-2 focus-within:ring-indigo-500 focus-within:border-indigo-500 grid">
-              <div 
-                className="p-3 font-mono whitespace-pre-wrap invisible [grid-area:1/1/2/2] text-transparent break-words"
-                aria-hidden="true"
-              >
-                {inputText}{' '}
-              </div>
-              <textarea
-                id="inputText"
-                rows={1}
-                className="w-full bg-transparent p-3 text-white placeholder-gray-500 font-mono resize-none focus:outline-none [grid-area:1/1/2/2] overflow-hidden"
-                placeholder="Escribe algo aquí..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
-                aria-label="Input Text"
-              />
-            </div>
+            <input
+              type="text"
+              id="inputText"
+              className="w-full bg-gray-900 border border-gray-600 rounded-md p-3 text-white placeholder-gray-500 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              placeholder="Escribe algo aquí..."
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              aria-label="Input Text"
+            />
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-400 mb-2">Estilo de Fuente</label>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {fontStyles.map(({ id, name }) => (
                 <button
                   key={id}
                   onClick={() => setSelectedFont(id)}
-                  className={`px-3 py-2 text-sm rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 ${
+                  className={`px-3 py-2 text-sm rounded-md transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 ${
                     selectedFont === id
-                      ? 'bg-indigo-600 text-white font-semibold'
-                      : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                      ? 'bg-indigo-600 text-white font-semibold border-indigo-500 shadow-lg shadow-indigo-600/30'
+                      : 'bg-gray-700 hover:bg-gray-600 text-gray-300 hover:border-gray-500'
                   }`}
                 >
                   {name}
@@ -188,15 +180,15 @@ export const TextGenerator: React.FC = () => {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-400 mb-2">Diseño de Borde</label>
-            <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2">
+            <div className="grid grid-cols-2 gap-2">
               {borderStyles.map(({ id, name }) => (
                 <button
                   key={id}
                   onClick={() => setSelectedBorder(id)}
-                  className={`px-3 py-2 text-sm rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 ${
+                  className={`px-3 py-2 text-sm rounded-md transition-all duration-200 border border-transparent focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-indigo-500 ${
                     selectedBorder === id
-                      ? 'bg-indigo-600 text-white font-semibold'
-                      : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
+                      ? 'bg-indigo-600 text-white font-semibold border-indigo-500 shadow-lg shadow-indigo-600/30'
+                      : 'bg-gray-700 hover:bg-gray-600 text-gray-300 hover:border-gray-500'
                   }`}
                 >
                   {name}
@@ -208,7 +200,7 @@ export const TextGenerator: React.FC = () => {
       </div>
       
       {/* Output Panel */}
-      <div className="lg:col-span-3">
+      <div className="lg:col-span-3 min-w-0">
         <AsciiOutput 
           outputText={outputText} 
           error={error} 
