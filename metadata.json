@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Generador de Arte ASCII",
+  "description": "Una herramienta web para crear banners y arte a partir de texto e imágenes. Perfecto para terminales, perfiles y más. Creado con React, TypeScript y Tailwind CSS.",
+  "requestFramePermissions": []
+}
